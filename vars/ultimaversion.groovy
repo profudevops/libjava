@@ -1,4 +1,4 @@
-def call(String uversion = '$uversion') {
+def call(String uversion = '$uversion', String ProjectName='$ProjectName') {
  echo "#########GENERERA JSON COMPLETO#########"
 					 withCredentials([usernamePassword(credentialsId: 'CREDENCIALES_NEXUS-PROD', passwordVariable: 'PWD_NEXUS', usernameVariable: 'USER_NEXUS')]) {
 						  response= sh ( script: " curl -u ${USER_NEXUS}:${PWD_NEXUS} -X GET "+
@@ -29,7 +29,7 @@ def call(String uversion = '$uversion') {
 					withCredentials([usernamePassword(credentialsId: 'CREDENCIALES_NEXUS-QA', passwordVariable: 'PWD_NEXUS', usernameVariable: 'USER_NEXUS')]) {
 						sh label: "shell para limpiar json", script: "curl -X GET -u ${USER_NEXUS}:${PWD_NEXUS} "+
 						"http://172.22.178.4:8081/nexus/repository/thirdparty/sh/limpiarjson/1.0/limpiarjson-1.0.sh -O"
-						sh label:"ultima version", script: "sh limpiarjson-1.0.sh json ${DIRECTORYNEXUS}${ProjectName}/temporal/"
+						sh label:"ultima version", script: "sh limpiarjson-1.0.sh json $DIRECTORYNEXUS$ProjectName/temporal/"
 						uversion = sh (script: 'cat UVERSION.txt', returnStdout: true )
 						echo "valor actual: $uversion"
 						if(uversion == "")
