@@ -1,6 +1,6 @@
-def call(List<String> val){
-  return [
-     new randClass(name: val[0], place: 'London')
-     new randClass(name: val[1], place: 'Berlin')
-  ]
+def call(String name = '$name') {
+ echo "Welcome, ${name}."
+ name = "alejandro"
+ echo "buenvenido $name"
+ return name
 }
