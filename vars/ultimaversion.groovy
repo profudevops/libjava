@@ -45,4 +45,5 @@ def call(String uversion = '$uversion', String ProjectName='$ProjectName') {
 						    echo "valor final: $uversion"
 						}
 					}
+	return uversion;
 }
