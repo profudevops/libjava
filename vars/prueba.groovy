@@ -1,6 +1,6 @@
-def call(String name = '$name', String ap = '$ap' ) {
+def call(String name = '$name', String ap = '$apellido' ) {
  echo "Welcome, ${name}."
- echo "apellido, ${ap}"
+ echo "este es el segundo parametro, ${ap}"
  name = "alejandro"
  echo "buenvenido $name"
  return name
