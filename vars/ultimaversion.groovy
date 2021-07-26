@@ -1,4 +1,4 @@
-def call(String uversion = '$uversion') {
+def call(String uversion = '$uversion', String ProjectName = '$ProjectName') {
  echo "#########GENERERA JSON COMPLETO#########"
 					 withCredentials([usernamePassword(credentialsId: 'CREDENCIALES_NEXUS-PROD', passwordVariable: 'PWD_NEXUS', usernameVariable: 'USER_NEXUS')]) {
 						  response= sh ( script: " curl -u ${USER_NEXUS}:${PWD_NEXUS} -X GET "+
