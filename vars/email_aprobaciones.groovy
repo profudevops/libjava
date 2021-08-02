@@ -53,7 +53,7 @@ def call(String jobNametmp = 'jobNametmp', String NAMESPACE = 'NAMESPACE', Strin
                         mimeType: 'text/html', 
                         from: 'ejedevopsprod@profuturo.com.mx', 
                         subject: 'Aprobado o Cancelacion del pipeline '+"$jobNametmp"+' clave de proyecto ', 
-                        to: "$LTCORREO",
+                        to: "$LTCORREO"
                         input id: 'Dev', message: 'Aprobación', ok: 'Promover'
                         echo "********************Termina Enviado Correo***********************************"
  }
